@@ -7,9 +7,12 @@ folder, file => KEBAB
 css => SNAKE             button_style
 
 -Error handling
+*/
 
 
-
-
+/*
+traditional API
+Rest API
+GraphQL API
 
 */
