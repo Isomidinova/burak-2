@@ -6,13 +6,13 @@ const memberSchema = new Schema({
     memberType: {
         type: String,
         enum: MemberType,
-        default: MemberType.USER
+        default: MemberType.USER,
     },
 
     memberStatus: {
         type: String,
         enum: MemberStatus,
-        default: MemberStatus.ACTIVE
+        default: MemberStatus.ACTIVE,
     },
 
     memberNick: {
@@ -24,13 +24,13 @@ const memberSchema = new Schema({
     memberPhone: {
         type: String,
         index: { unique: true, sparse: true },
-        required: true
+        required: true,
     },
 
     memberPassword: {
         type: String,
         select: false,
-        required: true
+        required: true,
     },
 
     memberAddress: {
