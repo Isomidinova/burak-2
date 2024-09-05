@@ -5,12 +5,6 @@ import { MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 
 class MemberService {
-  processLogin(input: LoginInput) {
-    throw new Error("Method not implemented.");
-  }
-  processSignup(newMember: MemberInput) {
-    throw new Error("Method not implemented.");
-  }
   private readonly memberModel;
 
   constructor() {
@@ -20,8 +14,8 @@ class MemberService {
   /** SPA */
 
   public async signup(input: MemberInput): Promise<Member> {
-        const salt = await bcrypt.genSalt();
-        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);  
+    const salt = await bcrypt.genSalt();
+    input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
     try {
       const result = await this.memberModel.create(input);
@@ -52,11 +46,8 @@ class MemberService {
 
     return await this.memberModel.findById(member._id).lean().exec();
   }
-}
 
-
-  /** SSR 
-
+  // SSR
 
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
@@ -69,8 +60,8 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
-      result.member.Password = "";
-      return result;
+      result.memberPassword = "";
+      return result;  
     } catch (err) {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
@@ -95,6 +86,6 @@ class MemberService {
 
     return await this.memberModel.findById(member._id).exec();
   }
-} */
+}
 
 export default MemberService;
