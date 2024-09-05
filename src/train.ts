@@ -18,4 +18,15 @@ GraphQL API
 
 traditional frontend development  => BSSR admikani bbsr da quramiz
 modern frontend development => SPA (user's applar da ishlatamiz)=> REACT library
+
+request join
+self destroy 
+
+
+
+
+
+
+
+
 */
